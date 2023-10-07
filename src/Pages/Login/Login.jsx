@@ -1,17 +1,27 @@
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
-
+    const {SignIn} = useContext(AuthContext)
     const handleLogin = (e) => {
+        
         e.preventDefault();
         const form = new FormData(e.currentTarget);
         console.log(form);
         const email = form.get('email');
         const password = form.get('password');
         console.log(email, password);
+        SignIn(email,password)
+        .then(res => {
+            return toast.success('Sign In Successfully !!');
+        })
+        .catch(err => {
+            return toast.error('Invalid-login-credentials!!');
+        })
 
     }
     return (
