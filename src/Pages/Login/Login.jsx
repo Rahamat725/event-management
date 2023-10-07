@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
-
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
 
 const Login = () => {
 
@@ -10,7 +11,8 @@ const Login = () => {
         console.log(form);
         const email = form.get('email');
         const password = form.get('password');
-        console.log(email,password)
+        console.log(email, password);
+
     }
     return (
         <div>
@@ -18,8 +20,8 @@ const Login = () => {
             <div>
                 <h2 className="text-2xl text-center font-semibold">Please Login</h2>
 
-               
-               <form onSubmit={handleLogin} className="lg:w-1/2 md:w-3/4 mx-auto ">
+
+                <form onSubmit={handleLogin} className="lg:w-1/2 md:w-3/4 mx-auto ">
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Email</span>
@@ -36,16 +38,28 @@ const Login = () => {
                         </label>
                     </div>
                     <div className="form-control mt-6">
-                        
-                             <button className="btn btn-primary">Login</button>
-                             
-                   
+
+                        <button className="btn btn-primary">Login</button>
+
+
                     </div>
                 </form>
+                <ToastContainer
+               position="bottom-center"
+               autoClose={5000}
+               hideProgressBar={true}
+               newestOnTop={false}
+               closeOnClick
+               rtl={false}
+               pauseOnFocusLoss
+               draggable
+               pauseOnHover
+               theme="colored"
+               />
                 <p className="text-center">Do not have an account?
-                <Link className="text- to-blue-600 font-bold" to="/register"> Register</Link></p>
-               </div>
-            
+                    <Link className="text- to-blue-600 font-bold" to="/register"> Register</Link></p>
+            </div>
+
         </div>
     );
 };

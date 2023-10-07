@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
-
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
 
 const Register = () => {
-
+    const [message, setMessage] = useState('');
+  const {createUser} = useContext(AuthContext)
     const handleRegister = (e) => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
@@ -11,7 +15,26 @@ const Register = () => {
         const photo = form.get('photo');
         const email = form.get('email');
         const password = form.get('password');
+        setMessage('');
         console.log(name,photo,email,password);
+        if(password.length<6){
+        //    return setMessage('password should be 6 characters');
+         return toast.error('password should be 6 characters !!')
+        }else if(!(/[A-Z]/).test(password)){
+        //    return setMessage('password should be one upper case');
+          return toast.error('password should be one upper case !!')
+        }else if(!/[@#$%^&+=*()_\-!]/.test(password)){
+            return toast.error('Password should be one special character!!');
+        }
+        createUser(email,password)
+        .then(res => {
+            console.log('user created', res.user);
+            return toast.success('User created successfully!');
+        })
+        .catch(err => {
+            console.error(err.message);
+            return toast.error(err.message);
+        })
     }
     return (
         <div>
@@ -52,9 +75,23 @@ const Register = () => {
                         <button className="btn btn-primary">Register</button>
                     </div>
                 </form>
+
                 <p className="text-center">Already have an account?
                 <Link className="text- to-blue-600 font-bold" to="/login"> Login</Link></p>
                </div>
+               {/* {message && <p>{message}</p>} */}
+               <ToastContainer
+               position="bottom-center"
+               autoClose={3000}
+               hideProgressBar={false}
+               newestOnTop={false}
+               closeOnClick
+               rtl={false}
+               pauseOnFocusLoss
+               draggable
+               pauseOnHover
+               theme="colored"
+               />
         </div>
     );
 };
