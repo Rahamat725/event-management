@@ -2,7 +2,7 @@
 
 const Welcome = () => {
     return (
-        <div className="mt-10 ">
+        <div className="mt-10 bg-gray-100 p-4">
             <h2 className="md:text-3xl text-xl text-center  font-bold">Welcome to
                 <span className="text-[#eab917]"> Corporate Junction</span></h2>
             <p className="w-3/4 mt-4 mx-auto text-center">From Conferences and Seminars to Trade Shows and Expos or Team Building and Workshops Events to
