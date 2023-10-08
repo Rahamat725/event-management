@@ -14,11 +14,13 @@ import ServiceDetails from './Pages/Services/ServiceDetails';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import About from './Pages/About/About';
 import Galary from './Pages/Galary/Galary';
+import NotFound from './NotFound/NotFound';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <NotFound></NotFound>,
     children:[
       {
         path:'/',

@@ -7,7 +7,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
     const location = useLocation();
-    const {SignIn} = useContext(AuthContext);
+    const {SignIn,loginWithGoogle} = useContext(AuthContext);
     const navigate = useNavigate();
     const handleLogin = (e) => {
         
@@ -27,12 +27,21 @@ const Login = () => {
         })
 
     }
+
+    const handleWithGoogle = () => {
+        loginWithGoogle()
+        .then(res => {
+            toast.success('Sign In Successfully !!');
+            navigate(location?.state ? location.state : '/')
+        })
+        .catch()
+    }
     return (
         <div>
             <Navbar></Navbar>
             <div>
                 <h2 className="text-2xl text-center font-semibold">Please Login</h2>
-
+                    <div className="text-center">  <button onClick={handleWithGoogle} className="btn btn-success"> Login With Google</button></div>
 
                 <form onSubmit={handleLogin} className="lg:w-1/2 md:w-3/4 mx-auto ">
                     <div className="form-control">

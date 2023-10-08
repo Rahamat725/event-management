@@ -8,7 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 const Register = () => {
     const navigate = useNavigate();
     const [message, setMessage] = useState('');
-  const {createUser} = useContext(AuthContext)
+  const {createUser, loginWithGoogle} = useContext(AuthContext)
     const handleRegister = (e) => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
@@ -30,21 +30,30 @@ const Register = () => {
         createUser(email,password)
         .then(res => {
             console.log('user created', res.user);
-            setMessage('User created successfully!')
+            // setMessage('User created successfully!')
              toast.success('User created successfully!', );
-            // navigate('/login')
+            navigate('/login')
         })
         .catch(err => {
             console.error(err.message);
             return toast.error(err.message);
         })
     }
+
+    const handleWithGoogle = () => {
+        loginWithGoogle()
+        .then(res => {
+            toast.success('Sign In Successfully !!');
+            navigate(location?.state ? location.state : '/')
+        })
+        .catch()
+    }
     return (
         <div>
             <Navbar></Navbar>
                <div>
                 <h2 className="text-2xl text-center font-semibold">Please Register</h2>
-
+                <div className="text-center">  <button onClick={handleWithGoogle} className="btn btn-success"> Login With Google</button></div>
                
                <form onSubmit={handleRegister} className="lg:w-1/2 md:w-3/4 mx-auto ">
                     <div className="form-control">
@@ -83,7 +92,7 @@ const Register = () => {
                 <Link className="text- to-blue-600 font-bold" to="/login"> Login</Link></p>
                </div>
                {/* {message && <p className=" text-center text-xl text-green-600">{message}</p>} */}
-               <ToastContainer
+               {/* <ToastContainer
                position="bottom-center"
                autoClose={3000}
                hideProgressBar={false}
@@ -94,7 +103,7 @@ const Register = () => {
                draggable
                pauseOnHover
                theme="colored"
-               />
+               /> */}
         </div>
     );
 };
