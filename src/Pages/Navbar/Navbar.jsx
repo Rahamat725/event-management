@@ -9,7 +9,7 @@ const Navbar = () => {
     const Links = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/about'>About</NavLink></li>
-        <li><NavLink to='/contact'>Contact Us</NavLink></li>
+        <li><NavLink to='/galary'>Galary</NavLink></li>
 
     </>
     const handleSignOut = () => {

@@ -1,3 +1,4 @@
+import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import Services from "../Services/Services";
 import Banner from "./Banner";
@@ -12,7 +13,7 @@ const Home = () => {
             <Banner></Banner>
             <Welcome></Welcome>
             <Services></Services>
-            <h2>This is Home page</h2>
+           <Footer></Footer>
         </div>
     );
 };

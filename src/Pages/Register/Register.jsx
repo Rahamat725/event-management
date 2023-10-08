@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from "react-toastify";
 
 const Register = () => {
+    const navigate = useNavigate();
     const [message, setMessage] = useState('');
   const {createUser} = useContext(AuthContext)
     const handleRegister = (e) => {
@@ -29,7 +30,9 @@ const Register = () => {
         createUser(email,password)
         .then(res => {
             console.log('user created', res.user);
-            return toast.success('User created successfully!');
+            setMessage('User created successfully!')
+             toast.success('User created successfully!', );
+            // navigate('/login')
         })
         .catch(err => {
             console.error(err.message);
@@ -79,7 +82,7 @@ const Register = () => {
                 <p className="text-center">Already have an account?
                 <Link className="text- to-blue-600 font-bold" to="/login"> Login</Link></p>
                </div>
-               {/* {message && <p>{message}</p>} */}
+               {/* {message && <p className=" text-center text-xl text-green-600">{message}</p>} */}
                <ToastContainer
                position="bottom-center"
                autoClose={3000}
