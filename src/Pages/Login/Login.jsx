@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from "react-toastify";
@@ -6,7 +6,9 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
-    const {SignIn} = useContext(AuthContext)
+    const location = useLocation();
+    const {SignIn} = useContext(AuthContext);
+    const navigate = useNavigate();
     const handleLogin = (e) => {
         
         e.preventDefault();
@@ -17,7 +19,8 @@ const Login = () => {
         console.log(email, password);
         SignIn(email,password)
         .then(res => {
-            return toast.success('Sign In Successfully !!');
+            toast.success('Sign In Successfully !!');
+            navigate(location?.state ? location.state : '/')
         })
         .catch(err => {
             return toast.error('Invalid-login-credentials!!');
