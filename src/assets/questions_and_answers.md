@@ -20,8 +20,8 @@ console.log(greetign);
 
 #### Answer: ? A
 
-<i>Write your explanation here</i>
- first line greeting is undefined, second line greeting asign empty object, so it will print empty object.
+<i> first line greeting is undefined, second line greeting asign empty object, so it will print empty object.</i>
+
 </p>
 </details>
 
@@ -45,8 +45,8 @@ sum(1, "2");
 
 #### Answer: ? C
 
-<i>Write your explanation here</i>
-we know that if we add a number with string the number will convert into string, that's why here ans is '12'
+<i>we know that if we add a number with string the number will convert into string, that's why here ans is '12'</i>
+
 </p>
 </details>
 
@@ -71,8 +71,8 @@ console.log(food);
 
 #### Answer: ? A
 
-<i>Write your explanation here</i>
-here we are not doing anything with food variable so, the output will be same as food variable have the value.
+<i>here we are not doing anything with food variable so, the output will be same as food variable have the value.</i>
+
 </p>
 </details>
 
@@ -96,8 +96,8 @@ console.log(sayHi());
 
 #### Answer: ? B
 
-<i>Write your explanation here</i>
-here we are not passing any argument and parameter name has no value that's why answer will be option B.
+<i>here we are not passing any argument and parameter name has no value that's why answer will be option B.</i>
+
 </p>
 </details>
 
@@ -124,12 +124,12 @@ console.log(count);
 
 #### Answer: ? C
 
-<i>Write your explanation here</i>
-we know that 0 is falsy value in javascript.
+<i>we know that 0 is falsy value in javascript.
 here first time num is 0  condition is false count = 0
 second time num is 1 condition is truel count = 1,
 third time num is 2 condition is true count = 2,
 fourth time num is 3 condition is true count = 3,
- so the annwer is option C.
+ so the annwer is option C.</i>
+
 </p>
 </details>
