@@ -18,10 +18,10 @@ const Navbar = () => {
                 toast.success('Log Out Successfully! ')
             })
     }
-
+    
     return (
         <div>
-            <div className="navbar bg-gray-500 mb-10 mt-5 lg:text-white rounded-lg h-[70px]">
+            <div className="navbar  mb-10 mt-5  rounded-lg h-[70px]">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -31,8 +31,9 @@ const Navbar = () => {
                             {Links}
                         </ul>
                     </div>
-                    <div className=" normal-case text-xl flex items-center">
-                        <img className="h-[100px]" src='https://i.ibb.co/0qwp4D6/Add-a-subheading-removebg-preview.png' alt="logo" />
+                    <div className=" normal-case text-xl items-center">
+                        <img className="" src='https://i.ibb.co/H7WgCyq/logo3-removebg-preview.png' alt="logo" />
+                        <p className="-mt-10 text-[#eab917] text-sm  text-center font-bold">Coporate Junction</p>
                             
                     </div>
                 </div>
