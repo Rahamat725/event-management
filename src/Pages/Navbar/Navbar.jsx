@@ -5,23 +5,23 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from "react-toastify";
 
 const Navbar = () => {
-    const {user,LogOUt} = useContext(AuthContext);
+    const { user, LogOUt } = useContext(AuthContext);
     const Links = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/about'>About</NavLink></li>
         <li><NavLink to='/contact'>Contact Us</NavLink></li>
 
     </>
- const handleSignOut = () => {
-    LogOUt()
-    .then(() => {
- toast.success('Log Out Successfully! ')
-    })
- }
+    const handleSignOut = () => {
+        LogOUt()
+            .then(() => {
+                toast.success('Log Out Successfully! ')
+            })
+    }
 
     return (
         <div>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-gray-500 mb-10 mt-5 text-white rounded-lg h-[70px]">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -31,9 +31,10 @@ const Navbar = () => {
                             {Links}
                         </ul>
                     </div>
-                    <a className=" normal-case text-xl">
-                        <img className="h-[50px] w-[100px]" src='https://i.ibb.co/cLmFK65/logo-200x200.png' alt="" />
-                    </a>
+                    <div className=" normal-case text-xl flex items-center">
+                        <img className="h-[100px]" src='https://i.ibb.co/0qwp4D6/Add-a-subheading-removebg-preview.png' alt="logo" />
+                            
+                    </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -45,22 +46,22 @@ const Navbar = () => {
                         <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                     </div>
                     {
-                        user ? <p onClick={handleSignOut}>Sign Out</p>
-                        : <Link to="/login">LogIn</Link>
+                        user ? <p className="cursor-pointer" onClick={handleSignOut}>Sign Out</p>
+                            : <Link to="/login">LogIn</Link>
                     }
-                  
+
                 </div>
                 <ToastContainer
-                position="bottom-center"
-                autoClose={3000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="colored"
+                    position="bottom-center"
+                    autoClose={3000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="colored"
                 />
             </div>
         </div>
