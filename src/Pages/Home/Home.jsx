@@ -2,6 +2,7 @@ import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import Services from "../Services/Services";
 import Banner from "./Banner";
+import Review from "./Review";
 
 import Welcome from "./Welcome";
 
@@ -13,6 +14,7 @@ const Home = () => {
             <Banner></Banner>
             <Welcome></Welcome>
             <Services></Services>
+            <Review></Review>
            <Footer></Footer>
         </div>
     );
