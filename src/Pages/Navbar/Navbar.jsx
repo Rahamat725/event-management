@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 const Navbar = () => {
     const { user, LogOUt } = useContext(AuthContext);
+
     const Links = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/about'>About</NavLink></li>
@@ -42,9 +43,14 @@ const Navbar = () => {
                         {Links}
                     </ul>
                 </div>
-                <div className="navbar-end">
+                <div className="navbar-end gap-2">
+                    <div>
+                        {
+                            user ? <p>{user.displayName}</p> : ""
+                        }
+                    </div>
                     <div className="w-10 rounded-full">
-                        <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                        <img src="https://i.ibb.co/mbPgrhZ/boy1.png" />
                     </div>
                     {
                         user ? <p className="cursor-pointer" onClick={handleSignOut}>Sign Out</p>
