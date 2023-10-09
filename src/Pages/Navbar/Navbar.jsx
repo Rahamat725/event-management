@@ -50,7 +50,8 @@ const Navbar = () => {
                         }
                     </div>
                     <div className="w-10 rounded-full">
-                        <img src="https://i.ibb.co/mbPgrhZ/boy1.png" />
+                        {/* <img src="https://i.ibb.co/mbPgrhZ/boy1.png" /> */}
+                        <img src={user?.photoURL} />
                     </div>
                     {
                         user ? <p className="cursor-pointer" onClick={handleSignOut}>Sign Out</p>

@@ -4,11 +4,12 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from "react-toastify";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
     const navigate = useNavigate();
     const [message, setMessage] = useState('');
-  const {createUser, loginWithGoogle} = useContext(AuthContext)
+  const {createUser,auth,user, loginWithGoogle} = useContext(AuthContext)
     const handleRegister = (e) => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
@@ -29,16 +30,26 @@ const Register = () => {
         }
         createUser(email,password)
         .then(res => {
+            updateProfile(res.user, {
+                displayName:name,
+                photoURL:photo,
+            })
+            .then()
+            .catch()
             console.log('user created', res.user);
             // setMessage('User created successfully!')
              toast.success('User created successfully!', );
-            navigate('/login')
+            navigate('/')
         })
         .catch(err => {
             console.error(err.message);
             return toast.error(err.message);
         })
+
+      
     }
+
+    
 
     const handleWithGoogle = () => {
         loginWithGoogle()
@@ -53,7 +64,7 @@ const Register = () => {
             <Navbar></Navbar>
                <div>
                 <h2 className="text-2xl text-center font-semibold">Please Register</h2>
-                <div className="text-center">  <button onClick={handleWithGoogle} className="btn btn-success"> Login With Google</button></div>
+                {/* <div className="text-center">  <button onClick={handleWithGoogle} className="btn btn-success"> Login With Google</button></div> */}
                
                <form onSubmit={handleRegister} className="lg:w-1/2 md:w-3/4 mx-auto ">
                     <div className="form-control">
@@ -92,18 +103,7 @@ const Register = () => {
                 <Link className="text- to-blue-600 font-bold" to="/login"> Login</Link></p>
                </div>
                {/* {message && <p className=" text-center text-xl text-green-600">{message}</p>} */}
-               {/* <ToastContainer
-               position="bottom-center"
-               autoClose={3000}
-               hideProgressBar={false}
-               newestOnTop={false}
-               closeOnClick
-               rtl={false}
-               pauseOnFocusLoss
-               draggable
-               pauseOnHover
-               theme="colored"
-               /> */}
+               <div className="text-center">  <button onClick={handleWithGoogle} className="btn hover:bg-green-500 bg-green-600 px-20 text-white"> Login With Google</button></div>
         </div>
     );
 };

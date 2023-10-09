@@ -41,7 +41,7 @@ const Login = () => {
             <Navbar></Navbar>
             <div>
                 <h2 className="text-2xl text-center font-semibold">Please Login</h2>
-                    <div className="text-center">  <button onClick={handleWithGoogle} className="btn btn-success"> Login With Google</button></div>
+                    {/* <div className="text-center">  <button onClick={handleWithGoogle} className="btn btn-success"> Login With Google</button></div> */}
 
                 <form onSubmit={handleLogin} className="lg:w-1/2 md:w-3/4 mx-auto ">
                     <div className="form-control">
@@ -81,7 +81,7 @@ const Login = () => {
                 <p className="text-center">Do not have an account?
                     <Link className="text- to-blue-600 font-bold" to="/register"> Register</Link></p>
             </div>
-
+            <div className="text-center">  <button onClick={handleWithGoogle} className="btn hover:bg-green-500 bg-green-600 px-20 text-white"> Login With Google</button></div>
         </div>
     );
 };
