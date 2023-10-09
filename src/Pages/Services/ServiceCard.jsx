@@ -5,8 +5,8 @@ const ServiceCard = ({card}) => {
     const {id,image,name,price,description} = card;
     return (
         <div>
-            <div className="card w-96 bg-gray-300 shadow-xl mx-auto">
-  <div>
+            <div  className="card w-96 bg-gray-300 shadow-xl mx-auto">
+  <div >
   <figure><img src={image} alt="Shoes" /></figure>
   <span className="text-xl bg-amber-700 text-white  relative bottom-8 p-2 rounded-lg">${price}</span>
   {/* bg-[#eab917] */}

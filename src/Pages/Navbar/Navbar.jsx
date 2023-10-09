@@ -19,7 +19,7 @@ const Navbar = () => {
                 toast.success('Log Out Successfully! ')
             })
     }
-    
+
     return (
         <div>
             <div className="navbar  mb-10 mt-5  rounded-lg h-[70px]">
@@ -35,7 +35,7 @@ const Navbar = () => {
                     <div className=" normal-case text-xl items-center">
                         <img className="" src='https://i.ibb.co/H7WgCyq/logo3-removebg-preview.png' alt="logo" />
                         <p className="-mt-10 text-[#eab917] text-sm  text-center font-bold">Coporate Junction</p>
-                            
+
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -44,7 +44,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end gap-2">
-                    <div>
+                <div className="">
                         {
                             user ? <p>{user.displayName}</p> : ""
                         }
@@ -52,12 +52,13 @@ const Navbar = () => {
                     <div className="w-10 rounded-full">
                         {/* <img src="https://i.ibb.co/mbPgrhZ/boy1.png" /> */}
                         <img src={user?.photoURL} />
+                  
                     </div>
                     {
                         user ? <p className="cursor-pointer" onClick={handleSignOut}>Sign Out</p>
                             : <Link to="/login">LogIn</Link>
                     }
-
+                 
                 </div>
                 <ToastContainer
                     position="bottom-center"
